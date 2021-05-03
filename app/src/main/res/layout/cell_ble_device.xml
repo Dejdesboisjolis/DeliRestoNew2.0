@@ -4,27 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/CellDeviceLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#E91E63"
+    android:backgroundTint="#E91E63"
+    android:rotationX="-2">
 
     <TextView
-        android:id="@+id/BleName"
-        android:layout_width="88dp"
-        android:layout_height="29dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.524"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/BleAdresse"
-        android:layout_width="177dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="68dp"
+        android:id="@+id/bleName"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:background="#009688"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bleAdresse"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="48dp"
+        android:background="#8BC34A"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/numberID"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="80dp"
+        android:background="#00BCD4"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/powerBle"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="112dp"
+        android:background="#3F51B5"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

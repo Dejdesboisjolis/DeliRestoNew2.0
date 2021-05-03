@@ -32,22 +32,16 @@ class CategoryAdapter(private val categories: List<Item>, private val clickListe
         
         holder.layout.setOnClickListener{
             clickListener.invoke(categories[position])
-
         }
     }
-
     override fun getItemCount(): Int {
         return categories.size
-
     }
-
     class CategoryViewHolder(binding: CellCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
         val title : TextView = itemView.findViewById(R.id.cellBleDeviceName)
         val layout = itemView.findViewById<View>(R.id.cellLayout)
         val image = binding.cellCategoryImage
         val price = binding.cellCategoryPrice
-
-
     }
 
     interface onItemClickListener{
