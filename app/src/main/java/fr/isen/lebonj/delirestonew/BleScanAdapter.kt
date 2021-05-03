@@ -9,30 +9,31 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.lebonj.delirestonew.databinding.ActivityBleScanBinding
+import fr.isen.lebonj.delirestonew.databinding.CellBleDeviceBinding
 
 class BleScanAdapter(private val listBLE: MutableList<ScanResult>,
-                     private val clickListener: (ScanResult) -> Unit) : RecyclerView.Adapter<BleScanAdapter.DeviceViewHolder>() {
+                     private val clickListener: (ScanResult) -> Unit) : RecyclerView.Adapter<BleScanAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): DeviceViewHolder {
-        val binding = ActivityBleScanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return DeviceViewHolder(binding.root)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = CellBleDeviceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
-    class DeviceViewHolder(binding: ConstraintLayout) : RecyclerView.ViewHolder(binding) {
-        //val titleDevice: TextView = binding.titleDevice
-
-        val layout = binding.findViewById<View>(R.id.cellDeviceLayout)
-
+    class ViewHolder(binding: CellBleDeviceBinding) : RecyclerView.ViewHolder(binding.root) {
+        val layout = binding.root
+        val BleName: TextView = itemView.findViewById(R.id.BleName)
+        val BleAdresse: TextView = itemView.findViewById(R.id.BleAdresse)
     }
 
-
-    override fun onBindViewHolder(holder: DeviceViewHolder, position: Int) {
-        //holder.titleDevice.text = listBLE[position].device.toString()
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.BleName.text=listBLE[position].scanRecord?.deviceName.toString()
+        holder.BleAdresse.text=listBLE[position].device.toString()
         holder.layout.setOnClickListener {
             clickListener.invoke(listBLE[position])
+
+
+
+
         }
 
     }
@@ -40,6 +41,7 @@ class BleScanAdapter(private val listBLE: MutableList<ScanResult>,
     fun addDevice(AppareilData: ScanResult) {
         if (!listBLE.contains(AppareilData)) {
             listBLE.add(AppareilData)
+
         }
     }
 

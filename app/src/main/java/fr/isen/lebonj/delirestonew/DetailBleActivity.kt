@@ -19,6 +19,6 @@ class DetailBleActivity : AppCompatActivity() {
         binding = ActivityDetailBleBinding.inflate(layoutInflater)
         setContentView(binding.root)
         listDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)?: error("error")
-        binding.titleDevice.text = listDevice?.name
+        //binding.titleDevice.text = listDevice?.name
     }
 }

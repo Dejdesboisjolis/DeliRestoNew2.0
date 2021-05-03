@@ -8,7 +8,7 @@
     tools:context=".DetailBleActivity">
 
     <TextView
-        android:id="@+id/titleDevice"
+        android:id="@+id/BleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
