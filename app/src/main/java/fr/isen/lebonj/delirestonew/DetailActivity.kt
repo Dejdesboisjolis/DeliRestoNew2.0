@@ -40,32 +40,32 @@ class DetailActivity : AppCompatActivity() {
             }
             binding.carouselView.setImageListener(imageListener)
             //if(detail.getFirstPicture().isNullOrEmpty()){
-               // Picasso.get().load("https://cdn.radiofrance.fr/s3/cruiser-production/2019/12/610ac15e-0d90-4ad6-968a-747e6bdd2f84/870x489_bg.jpg").into(binding.detailImage)
+            // Picasso.get().load("https://cdn.radiofrance.fr/s3/cruiser-production/2019/12/610ac15e-0d90-4ad6-968a-747e6bdd2f84/870x489_bg.jpg").into(binding.detailImage)
             //}else{
-               // Picasso.get().load(detail.getFirstPicture()).into(binding.detailImage)
+            // Picasso.get().load(detail.getFirstPicture()).into(binding.detailImage)
             //}
         }
 
-            binding.detailLessButton.setOnClickListener {
-                itemCount = max(1, itemCount - 1)
-                binding.detailCount.text = itemCount.toString()
-
-            }
-
-            binding.detailMoreButton.setOnClickListener {
-                itemCount += 1
-                binding.detailCount.text = itemCount.toString()
-            }
-
-            binding.detailShopButton.setOnClickListener {
-                binding.detailCount.text = itemCount.toString()
-            }
-
-
-
-
-
-
+        binding.detailLessButton.setOnClickListener {
+            itemCount = max(1, itemCount - 1)
+            binding.detailCount.text = itemCount.toString()
 
         }
+
+        binding.detailMoreButton.setOnClickListener {
+            itemCount += 1
+            binding.detailCount.text = itemCount.toString()
+        }
+
+        binding.detailShopButton.setOnClickListener {
+            binding.detailCount.text = itemCount.toString()
+        }
+
+
+
+
+
+
+
+    }
 }

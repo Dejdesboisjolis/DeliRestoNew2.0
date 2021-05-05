@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeliRestoNew"
         android:usesCleartextTraffic="true">
-        <activity android:name=".modele.BLEDeviceActivity"></activity>
+        <activity android:name=".DetailActivity"></activity>
         <activity android:name=".DetailBleActivity" />
+        <activity android:name=".BLEDeviceActivity" />
         <activity android:name=".BleScanActivity" />
-        <activity android:name=".DetailActivity" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

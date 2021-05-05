@@ -98,11 +98,13 @@ class BleScanActivity : AppCompatActivity() {
     private fun togglePlayPauseAction() {
         if (!isScanning) {
             binding.bleScanTitle.text = getString(R.string.BleScanPlay)
+            binding.ImageBLEStartPause.setImageResource(R.drawable.pause)
             binding.loadingProgress.isVisible = true
             binding.divider.isVisible = false
             scanLeDevice()
         } else {
             binding.bleScanTitle.text = getString(R.string.BleScanPause)
+            binding.ImageBLEStartPause.setImageResource(R.drawable.play)
             binding.loadingProgress.isVisible = false
             binding.divider.isVisible = true
         }
@@ -135,7 +137,7 @@ class BleScanActivity : AppCompatActivity() {
     private fun initRecyclerDevice() {
         binding.deviceList.layoutManager = LinearLayoutManager(this)
         leDeviceListAdapter = BleScanAdapter(mutableListOf()) {
-            val intent = Intent(this, DetailBleActivity::class.java)
+            val intent = Intent(this, BLEDeviceActivity::class.java)
             intent.putExtra(BluetoothDevice.EXTRA_DEVICE, it.device)
             startActivity(intent)
         }

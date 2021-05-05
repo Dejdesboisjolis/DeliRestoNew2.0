@@ -1,4 +1,4 @@
-package fr.isen.lebonj.delirestonew.modele
+package fr.isen.lebonj.delirestonew
 
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGatt
@@ -6,35 +6,41 @@ import android.bluetooth.BluetoothGattCallback
 import android.bluetooth.BluetoothGattCharacteristic
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import fr.isen.lebonj.delirestonew.R
 import fr.isen.lebonj.delirestonew.databinding.ActivityBLEDeviceBinding
-import fr.isen.lebonj.delirestonew.databinding.ActivityBleScanBinding
 
 class BLEDeviceActivity : AppCompatActivity() {
+
+    var bluetoothGatt: BluetoothGatt? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var binding = ActivityBLEDeviceBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
+
         val device = intent.getParcelableExtra<BluetoothDevice>("ble_device")
-        binding.deviceName.text = device?.name?:"Appareil inconnu"
-        binding.deviceStatus.text = getString(R.string.ble_device_status, getString(R.string.ble_device_status_connecting))
+        binding.nameDeviceBLE.text = device?.name?:"Appareil inconnu"
+        binding.StatusBLE.text = getString(R.string.ble_device_status, getString(R.string.ble_device_status_connecting))
 
         connectToDevice(device)
+        binding.adressBleDetail.text = device?.address
     }
 
     private fun connectToDevice(device: BluetoothDevice?)
     {
         var bluetoothGatt = device?.connectGatt(this, false, object : BluetoothGattCallback() {
-            fun OnConnectionStateChange(gatt: BluetoothGatt, status: Int, newState: Int) {
-
+            override fun onConnectionStateChange(gatt: BluetoothGatt, status: Int, newState: Int) {
                 super.onConnectionStateChange(gatt, status, newState)
-                onConnectionStateChange(newState, gatt)
+                connectionStateChange(newState, gatt)
 
             }
 
             override fun onServicesDiscovered(gatt: BluetoothGatt, status: Int) {
                 super.onServicesDiscovered(gatt, status)
+                gatt.services?.let{
+
+                }
 
             }
 
@@ -51,14 +57,17 @@ class BLEDeviceActivity : AppCompatActivity() {
 
     }
 
-    private fun onConnectionStateChange(newState: Int, gatt: BluetoothGatt?)
+    private fun connectionStateChange(newState: Int, gatt: BluetoothGatt?)
     {
         BLEConnexionState.getBLEConnexionStateFromState(newState)?.let {
             runOnUiThread{
-
+                //binding.deviceStatus = getString(R.string.ble_device_status, getString(it.text))
             }
-                //binding.deviceStatus.text = getString(R.string.ble_device_status, getString(it.text))           }
+            if(it.state == BLEConnexionState.STATE_CONNECTED.state)
+            {
+                gatt?.discoverServices()
+            }
+        }
         }
 
     }
-}
