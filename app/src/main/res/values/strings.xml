@@ -20,6 +20,8 @@
     <string name="ble_device_status_connected">Connecté</string>
     <string name="ble_device_status_disconnected">déconnecté</string>
     <string name="ble_device_status_disconnecting">Deconnection en cours</string>
-
+    <string name="statusBle">"Status : connecté "</string>
+    <string name="carac_title">Caractéristiques spécifiques</string>
+    <string name="carac_value">Valeur :</string>
 
 </resources>

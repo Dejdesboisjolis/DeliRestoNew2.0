@@ -17,9 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeliRestoNew"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".BLEDeviceActivity"></activity>
+        <activity android:name=".modele.BLEDeviceActivity" />
+        <activity android:name=".DetailActivity" />
         <activity android:name=".DetailBleActivity" />
-        <activity android:name=".BLEDeviceActivity" />
         <activity android:name=".BleScanActivity" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".MainActivity">

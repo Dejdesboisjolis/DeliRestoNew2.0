@@ -65,10 +65,11 @@
         android:id="@+id/ImageBLEStartPause"
         android:layout_width="37dp"
         android:layout_height="31dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
